@@ -79,6 +79,11 @@ class Graph<T> {
         }
     }
 
+    // Find the number of edges a vertex has
+    public int numOfEdges(T s) {
+        return(map.get(s).size());
+    }
+
     // Prints the adjacency list of each vertex.
     @Override
     public String toString()
