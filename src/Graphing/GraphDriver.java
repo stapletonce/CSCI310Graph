@@ -59,6 +59,9 @@ public class GraphDriver {
         undirected10.getEdgesCount(true);
         System.out.print(undirected10.toString());
         System.out.println("Each vertex has at least one edge: " + checkEachVertexHasAnEdge(undirected10, 10));
+        System.out.print("DFS: ");
+        undirected10.depthFirstSearch(0);
+        System.out.println();
         System.out.println("--------------------------------------------------");
 
 
@@ -67,6 +70,9 @@ public class GraphDriver {
         undirected100.getEdgesCount(true);
         System.out.print(undirected100.toString());
         System.out.println("Each vertex has at least one edge: " + checkEachVertexHasAnEdge(undirected100, 100));
+        System.out.print("DFS: ");
+        undirected100.depthFirstSearch(0);
+        System.out.println();
         System.out.println("--------------------------------------------------");
 
         //Graph<Integer> undirected10000 = createGraph(10000, true);
@@ -88,6 +94,9 @@ public class GraphDriver {
         directed10.getEdgesCount(false);
         System.out.print(directed10.toString());
         System.out.println("Each vertex has at least one edge: " + checkEachVertexHasAnEdge(directed10, 10));
+        System.out.print("DFS: ");
+        directed10.depthFirstSearch(0);
+        System.out.println();
         System.out.println("--------------------------------------------------");
 
         Graph<Integer> directed100 = createGraph(100, false);
@@ -95,6 +104,9 @@ public class GraphDriver {
         directed100.getEdgesCount(false);
         System.out.print(directed100.toString());
         System.out.println("Each vertex has at least one edge: " + checkEachVertexHasAnEdge(directed100, 100));
+        System.out.print("DFS: ");
+        directed100.depthFirstSearch(0);
+        System.out.println();
         System.out.println("--------------------------------------------------");
 
         //Graph<Integer> directed10000 = createGraph(10000, false);

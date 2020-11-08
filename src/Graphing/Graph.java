@@ -8,11 +8,17 @@ class Graph<T> {
 
     // We use Hashmap to store the edges in the graph
     private Map<T, List<T> > map = new HashMap<>();
+    private Map<T, Vertex> vertexMap = new HashMap<>();
 
     // This function adds a new vertex to the graph
     public void addVertex(T s)
     {
         map.put(s, new LinkedList<T>());
+        vertexMap.put(s, new Vertex((Integer) s));
+    }
+
+    public Boolean vertexVisited(T s) {
+        return vertexMap.get(s).visited;
     }
 
     // This function adds the edge
@@ -82,6 +88,25 @@ class Graph<T> {
     // Find the number of edges a vertex has
     public int numOfEdges(T s) {
         return(map.get(s).size());
+    }
+
+    public void depthFirstSearch(int node) {
+        depthFirstSearchHelper(vertexMap.get(node));
+    }
+
+    public void depthFirstSearchHelper(Vertex node) {
+        node.visit();
+        System.out.print(node.n + " ");
+
+        LinkedList<T> allNeighbors = (LinkedList<T>) map.get(node.n);
+        if (allNeighbors == null)
+            return;
+
+        for (T neighbor : allNeighbors) {
+
+            if (!vertexVisited(neighbor))
+                depthFirstSearchHelper(vertexMap.get(neighbor));
+        }
     }
 
     // Prints the adjacency list of each vertex.
